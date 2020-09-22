@@ -10,6 +10,11 @@
 </head>
 <body>
     <section class="console">
+        <ul class="statuses">
+            <li>Boredom</li>
+            <li>Hunger</li>
+            <li>Sleep</li>
+        </ul>
         <section class="middle">
             <button class="left"></button>
                 <div class="window">
@@ -20,15 +25,9 @@
                     <img src="./assets/bedroom.jpg" class="bedroom rooms" alt="Bedroom">
                     <img src="./assets/living room.png" class="livingroom rooms" alt="Living Room">
                     <img src="./assets/kitchen.jpg" class="kitchen rooms" alt="Kitchen">
-                    <div class="hunger-bar">
-                        <div class="fullness"></div>
-                    </div>
-                    <div class="boredom-bar">
-                        <div class="entertained"></div>
-                    </div>
-                    <div class="sleep-bar">
-                        <div class="awakeness"></div>
-                    </div>
+                    <progress class="sleep"></progress>
+                    <progress class="hunger"></progress>
+                    <progress class="boredom"></progress>
                 </div>
             <button class="right"></button>
         </section>

@@ -20,6 +20,16 @@ body {
     flex-direction: column;
 }
 
+.statuses {
+    color: black;
+    opacity: 88%;
+    list-style: none;
+    right: 90.5vw;
+    top: 3.5vh;
+    position: absolute;
+    line-height: 3vh;
+}
+
 .middle {
     height: 80%;
     width: 100%;
@@ -80,18 +90,21 @@ body {
     align-self: flex-end;
     height: 50%;
 }
+
 .agumon {
     position: absolute;
     align-self: flex-end;
     height: 25%;
     visibility: hidden;
 }
+
 .koromon {
     position: absolute;
     align-self: flex-end;
     height: 20%;
     visibility: hidden;
 }
+
 .greymon {
     position: absolute;
     align-self: flex-end;
@@ -113,4 +126,22 @@ body {
 
 .kitchen {
     min-width: 100%;
+}
+
+.hunger{
+    position: absolute;
+    left: 10vw;
+    top: 9vh;
+}
+
+.sleep {
+    position: absolute;
+    left: 10vw;
+    top: 12vh;
+}
+
+.boredom {
+    position: absolute;
+    left: 10vw;
+    top: 6vh;
 }
