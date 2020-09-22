@@ -10,3 +10,47 @@ body {
     justify-content: center;
     align-content: center;
 }
+
+.console {
+    background-color: aqua;
+    border-radius: 10%;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.window {
+    margin-top: 2%;
+    background-color: blanchedalmond;
+    width: 80%;
+    height: 100%;
+}
+
+.left{
+    margin: 2%;
+    align-self: center;
+    width: 5%;
+    height: 10%;
+}
+.right{
+    margin: 2%;
+    align-self: center;
+    width: 5%;
+    height: 10%;
+}
+.interact {
+    border-radius: 10%;
+    align-self: center;
+    margin-top: 5%;
+    width: 60%;
+    height: 5%;
+}
