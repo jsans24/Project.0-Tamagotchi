@@ -61,6 +61,11 @@ body {
     border-bottom: 10vh solid transparent; 
     border-right: 10vh solid black; 
 }
+
+.left:hover {
+    cursor: pointer;
+}
+
 .right{
     background-color: transparent;
     border: none;
@@ -73,6 +78,11 @@ body {
     border-bottom: 10vh solid transparent;
     border-left: 10vh solid black;
 }
+
+.right:hover {
+    cursor: pointer;
+}
+
 .interact {
     position: relative;
     border: none;
@@ -83,12 +93,18 @@ body {
     margin-bottom: 1%;
     width: 60%;
     height: 10vh;
+    color: white;
+    font-size: 25px;
+}
+
+.interact:hover {
+    cursor: pointer;
 }
 
 .egg {
     position: absolute;
     align-self: flex-end;
-    height: 50%;
+    height: 30%;
 }
 
 .agumon {
