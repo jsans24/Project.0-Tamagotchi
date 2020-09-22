@@ -105,12 +105,14 @@ body {
     position: absolute;
     align-self: flex-end;
     height: 30%;
+    z-index: 10;
 }
 
 .agumon {
     position: absolute;
     align-self: flex-end;
     height: 25%;
+    z-index: 10;
     visibility: hidden;
 }
 
@@ -118,6 +120,7 @@ body {
     position: absolute;
     align-self: flex-end;
     height: 20%;
+    z-index: 10;
     visibility: hidden;
 }
 
@@ -125,11 +128,12 @@ body {
     position: absolute;
     align-self: flex-end;
     height: 50%;
+    z-index: 10;
     visibility: hidden;
 }
 
 .rooms {
-    position: inherit;
+    position: relative;
 }
 
 .bedroom {
