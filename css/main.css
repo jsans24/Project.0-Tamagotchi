@@ -12,11 +12,10 @@ body {
 }
 
 .console {
-    background-color: aqua;
+    background-color: rgba(116, 0 ,199, 75%);
     border-radius: 10%;
     width: 100vw;
     height: 100vh;
-    margin-top: 5vh;
     display: flex;
     flex-direction: column;
 }
@@ -35,33 +34,37 @@ body {
     height: 100%;
     display: flex;
     justify-content: center;
+    clear: none;
+    overflow: hidden;
+    margin-bottom: -50%;
 }
 
 .left{
     border: none;
-    background-color: aqua;
+    background-color: transparent;
     margin-right: 2%;
     margin-top: 4%;
     align-self: center;
     width: 0; 
     height: 0; 
-    border-top: 5vh solid aqua;
-    border-bottom: 5vh solid aqua; 
-    border-right: 5vh solid black; 
+    border-top: 10vh solid transparent;
+    border-bottom: 10vh solid transparent; 
+    border-right: 10vh solid black; 
 }
 .right{
-    background-color: aqua;
+    background-color: transparent;
     border: none;
     margin-left: 2%;
     margin-top: 4%;
     align-self: center;
     width: 0; 
     height: 0;
-    border-top: 5vh solid aqua;
-    border-bottom: 5vh solid aqua;
-    border-left: 5vh solid black;
+    border-top: 10vh solid transparent;
+    border-bottom: 10vh solid transparent;
+    border-left: 10vh solid black;
 }
 .interact {
+    position: relative;
     border: none;
     background-color: black;
     border-radius: 20%;
@@ -69,7 +72,7 @@ body {
     margin-top: 5%;
     margin-bottom: 1%;
     width: 60%;
-    height: 10%;
+    height: 10vh;
 }
 
 .egg {
@@ -94,4 +97,20 @@ body {
     align-self: flex-end;
     height: 50%;
     visibility: hidden;
+}
+
+.rooms {
+    position: inherit;
+}
+
+.bedroom {
+    min-width: 100%;
+}
+
+.livingroom {
+    min-width: 100%;
+}
+
+.kitchen {
+    min-width: 100%;
 }
