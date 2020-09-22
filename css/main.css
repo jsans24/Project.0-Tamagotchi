@@ -33,6 +33,8 @@ body {
     background-color: blanchedalmond;
     width: 80vw;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .left{
@@ -68,4 +70,28 @@ body {
     margin-bottom: 1%;
     width: 60%;
     height: 10%;
+}
+
+.egg {
+    position: absolute;
+    align-self: flex-end;
+    height: 50%;
+}
+.agumon {
+    position: absolute;
+    align-self: flex-end;
+    height: 25%;
+    visibility: hidden;
+}
+.koromon {
+    position: absolute;
+    align-self: flex-end;
+    height: 20%;
+    visibility: hidden;
+}
+.greymon {
+    position: absolute;
+    align-self: flex-end;
+    height: 50%;
+    visibility: hidden;
 }
