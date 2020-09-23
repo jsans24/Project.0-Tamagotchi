@@ -42,6 +42,10 @@ $rightButton.on('click', function() {
     }
 });
 
+function findRandomIntFromInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
 function startTimer() {
     setInterval(function() {
         time++;
@@ -49,6 +53,19 @@ function startTimer() {
     }, 1000)
 }
 
+class Tamagotchi{
+    constructor() {
+        this.maxHunger = 10;
+        this.maxSleep = 10;
+        this.maxBoredom = 10;
+        this.boredom = 0;
+        this.sleep = 0;
+        this.hunger = 0;
+    }
 
+    evolve() {
+        this.maxHunger += 
+    }
+}
 
 
