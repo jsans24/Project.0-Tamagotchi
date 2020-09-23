@@ -2,6 +2,7 @@ const $leftButton = $('.left')
 const $rightButton = $('.right')
 const $interactButton = $('.interact')
 const $centerButton = $('.center')
+time = 0;
 let room = 1
 
 $('.start').css('width', `${$('.window').css('width')}`).css('height', `${$('.window').css('height')}`)
@@ -9,29 +10,45 @@ $('.start').css('width', `${$('.window').css('width')}`).css('height', `${$('.wi
 if ($('.start').css('display', 'initial')) {
     $interactButton.text('Start');
     $interactButton.on('click', function() {
+        startTimer();
         $('.start').css('display', 'none');
-        $interactButton.text('Play');
+        $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
+        $('.koromon').css('opacity', 1)//.css('transition', 'opacity 1s linear');
+        if(room === 1) $interactButton.text('Play');
     })
+}
+
+$leftButton.on('click', function() {
+    if ($('.start').css('display') === 'none') {
+        room = 0;
+        $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
+        $interactButton.text('Sleep');
+    }
+})
+
+$centerButton.on('click', function() {
+    if ($('.start').css('display') === 'none') {
+        room = 1;
+        $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
+        $interactButton.text('Play');
+    }
+})
+
+$rightButton.on('click', function() {
+    if ($('.start').css('display') === 'none') {
+        room = 2;
+        $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
+        $interactButton.text('Eat');
+    }
+});
+
+function startTimer() {
+    setInterval(function() {
+        time++;
+        console.log(time);
+    }, 1000)
 }
 
 
 
-
-$leftButton.on('click', function() {
-    room = 0;
-    $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
-    $interactButton.text('Sleep');
-})
-
-$rightButton.on('click', function() {
-    room = 1;
-    $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
-    $interactButton.text('Eat');
-})
-
-$centerButton.on('click', function() {
-    room = 2;
-    $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
-    $interactButton.text('Play');
-})
 

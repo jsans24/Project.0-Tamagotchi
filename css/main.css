@@ -132,15 +132,15 @@ body {
     align-self: flex-end;
     height: 25%;
     z-index: 10;
-    visibility: hidden;
+    opacity: 0;
 }
 
 .koromon {
     position: absolute;
     align-self: flex-end;
     height: 20%;
-    z-index: 10;
-    visibility: hidden;
+    z-index: 9;
+    opacity: 0;
 }
 
 .greymon {
@@ -148,7 +148,7 @@ body {
     align-self: flex-end;
     height: 50%;
     z-index: 10;
-    visibility: hidden;
+    opacity: 0;
 }
 
 .rooms {
