@@ -51,6 +51,7 @@ function startTimer() {
     setInterval(function() {
         time++;
         console.log(time);
+        if (time % 20 === 0) digimon.age++;
     }, 1000);
 };
 
@@ -62,6 +63,7 @@ class Tamagotchi{
         this.boredom = 0;
         this.sleep = 0;
         this.hunger = 0;
+        this.age = 0;
     };
 
     evolve() {
@@ -71,4 +73,4 @@ class Tamagotchi{
     };
 };
 
-
+const digimon = new Tamagotchi()
