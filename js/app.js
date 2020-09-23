@@ -50,8 +50,8 @@ function startTimer() {
     setInterval(function() {
         time++;
         console.log(time);
-    }, 1000)
-}
+    }, 1000);
+};
 
 class Tamagotchi{
     constructor() {
@@ -61,11 +61,13 @@ class Tamagotchi{
         this.boredom = 0;
         this.sleep = 0;
         this.hunger = 0;
-    }
+    };
 
     evolve() {
-        this.maxHunger += 
-    }
-}
+        this.maxHunger += findRandomIntFromInt(0, 3);
+        this.maxSleep += findRandomIntFromInt(0, 3);
+        this.maxBoredom += findRandomIntFromInt(0, 3);
+    };
+};
 
 
