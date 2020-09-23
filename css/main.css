@@ -37,6 +37,13 @@ body {
     justify-content: center;
 }
 
+.center {
+    justify-self: center;
+    align-self: center;
+    background-color: black;
+    margin-top: 1vh;
+}
+
 .window {
     margin-top: 2%;
     background-color: blanchedalmond;
@@ -45,7 +52,7 @@ body {
     display: flex;
     justify-content: center;
     clear: none;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-bottom: -50%;
 }
 
@@ -60,6 +67,7 @@ body {
     border-top: 10vh solid transparent;
     border-bottom: 10vh solid transparent; 
     border-right: 10vh solid black; 
+    z-index: 9;
 }
 
 .left:hover {
@@ -77,6 +85,7 @@ body {
     border-top: 10vh solid transparent;
     border-bottom: 10vh solid transparent;
     border-left: 10vh solid black;
+    z-index: 9;
 }
 
 .right:hover {
