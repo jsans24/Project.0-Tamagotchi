@@ -2,7 +2,8 @@ const $leftButton = $('.left')
 const $rightButton = $('.right')
 const $interactButton = $('.interact')
 const $centerButton = $('.center')
-time = 0;
+const evolution = [{0: $(".koromon"), 1: $('.agumon'), 2: $('.greymon')}]
+let time = 0;
 let room = 1
 
 $('.start').css('width', `${$('.window').css('width')}`).css('height', `${$('.window').css('height')}`)
