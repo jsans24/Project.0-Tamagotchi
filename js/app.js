@@ -71,6 +71,9 @@ const digimon = new Tamagotchi();
 function startTimer() {
     setInterval(function() {
         time++;
+        $('.hunger').attr('max', digimon.maxHunger)
+        $('.boredom').attr('max', digimon.maxBoredom)
+        $('.sleep').attr('max', digimon.maxSleep)
         // console.log(time);
         if (time % 5 === 0) {
             let chance = findRandomIntFromInt(1, 7)
