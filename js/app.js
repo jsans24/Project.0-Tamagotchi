@@ -46,15 +46,6 @@ $rightButton.on('click', function() {
 function findRandomIntFromInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
-function startTimer() {
-    setInterval(function() {
-        time++;
-        console.log(time);
-        if (time % 20 === 0) digimon.age++;
-    }, 1000);
-};
-
 class Tamagotchi{
     constructor() {
         this.maxHunger = 10;
@@ -73,4 +64,26 @@ class Tamagotchi{
     };
 };
 
-const digimon = new Tamagotchi()
+const digimon = new Tamagotchi();
+
+
+
+function startTimer() {
+    setInterval(function() {
+        time++;
+        // console.log(time);
+        if (time % 5 === 0) {
+            let chance = findRandomIntFromInt(1, 7)
+            console.log(chance);
+            if (chance === 1 || chance === 5 || chance === 6 || chance === 7) digimon.boredom++;
+            if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
+            if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
+        }
+        $('.hunger').val(digimon.hunger)
+        $('.boredom').val(digimon.boredom)
+        $('.sleep').val(digimon.sleep)
+        if (time % 20 === 0) digimon.age++;
+        // console.log(digimon.age);
+    }, 1000);
+};
+
