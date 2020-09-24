@@ -5,8 +5,16 @@ const $centerButton = $('.center');
 const evolution = [{0: $(".training"), 1: $('.rookie'), 2: $('.champion')}];
 const rookieAge = findRandomIntFromInt(5, 10)
 const championAge = findRandomIntFromInt(17, 25)
+const letter = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+let name = '';
+let shift = 0;
+let q = 0;
 let time = 0;
 let room = 1;
+
+function updateLetter() {$('.alphabet').text(`${letter[q]}`)};
+
+updateLetter()
 
 console.log(rookieAge);
 console.log(championAge);
@@ -43,22 +51,25 @@ const digimon = new Tamagotchi();
 
 function startTimer() {
     setInterval(function() {
-        time++;
+        time+=5;
+        if ($('.bedroom').css('opacity') == .5) $('.bedroom').css('opacity', 1).css('transition', 'opacity 1s linear');
         $('.hunger').attr('max', digimon.maxHunger)
         $('.boredom').attr('max', digimon.maxBoredom)
         $('.sleep').attr('max', digimon.maxSleep)
         console.log(time);
         if (time % 5 === 0) {
             let chance = findRandomIntFromInt(1, 7)
-            // console.log(chance);
-            if (chance === 1 || chance === 5 || chance === 6 || chance === 7) digimon.boredom++;
-            if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
-            if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
+            if (digimon.boredom < digimon.maxBoredom) if (chance === 1 || chance === 5 || chance === 6 || chance === 7) digimon.boredom++;
+            if (digimon.hunger < digimon.maxHunger) if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
+            if (digimon.sleep < digimon.maxSleep) if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
+            console.log(digimon.hunger)
+            console.log(digimon.boredom)
+            console.log(digimon.sleep)
         }
         $('.hunger').val(digimon.hunger)
         $('.boredom').val(digimon.boredom)
         $('.sleep').val(digimon.sleep)
-        digimon.age = time / 20;
+        digimon.age = Math.floor(time / 20);
         if (time / 20 === rookieAge) {
             $('.training').css('opacity', 0).css('transition', 'opacity 1s linear')
             $('.rookie').css('opacity', 1);
@@ -76,15 +87,23 @@ function startTimer() {
 
 
 $interactButton.on('click', function() {
-    if ($('.start').css('display') == 'block') {
+    if ($('.egg').css('opacity') == 1) {
+        $('.alphabet').css('visibility', 'visible')
+        $interactButton.text('Submit'),
+        $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
+    } else if ($('.start').css('display') == 'block' && $('.alphabet').css('display') == 'block') {
         startTimer();
         $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut();
-        $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
+        $('.rooms').css('display', 'block')
         $('.training').css('opacity', 1)//.css('transition', 'opacity 1s linear');
         if(room === 1) $interactButton.text('Play');
-        console.log(($('.start').css('display')));
-    } else if ($('.start').css('display') == 'none') {
-        if (room === 0 && digimon.sleep > 0) digimon.sleep--;
+        $('.alphabet').fadeOut()
+    } 
+    if ($('.start').css('display') == 'none') {
+        if (room === 0 && digimon.sleep > 0) {
+            digimon.sleep--;
+            $('.bedroom').css('opacity', '50%').css('transition', 'opacity 1s linear')
+        }
         if (room === 1 && digimon.boredom > 0) digimon.boredom--;
         if (room === 2 && digimon.hunger > 0) digimon.hunger--;
     }
@@ -93,6 +112,11 @@ $interactButton.on('click', function() {
 
 
 $leftButton.on('click', function() {
+    if ($('.alphabet').css('visibility') == 'visible') {
+        if (q === 0) q = letter.length
+        q--;
+        $('.alphabet').text(`${letter[q]}`)
+    }
     if ($('.start').css('display') == 'none') {
         room = 0;
         $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
@@ -101,6 +125,11 @@ $leftButton.on('click', function() {
 })
 
 $centerButton.on('click', function() {
+    if ($('.alphabet').css('visibility') == 'visible') {
+        name += letter[q]
+        console.log(name);
+        $('#name').text(name)
+    }
     if ($('.start').css('display') == 'none') {
         room = 1;
         $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
@@ -109,6 +138,11 @@ $centerButton.on('click', function() {
 })
 
 $rightButton.on('click', function() {
+    if ($('.alphabet').css('visibility') == 'visible') {
+        if (q === letter.length - 1) q = -1
+        q++;
+        $('.alphabet').text(`${letter[q]}`)
+    }
     if ($('.start').css('display') == 'none') {
         room = 2;
         $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
