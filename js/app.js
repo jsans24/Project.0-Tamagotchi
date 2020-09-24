@@ -2,7 +2,7 @@ const $leftButton = $('.left')
 const $rightButton = $('.right')
 const $interactButton = $('.interact')
 const $centerButton = $('.center')
-const evolution = [{0: $(".koromon"), 1: $('.agumon'), 2: $('.greymon')}]
+const evolution = [{0: $(".training"), 1: $('.rookie'), 2: $('.champion')}]
 let time = 0;
 let room = 1
 
@@ -10,42 +10,6 @@ $('.start').css('width', `${$('.window').css('width')}`).css('height', `${$('.wi
 $interactButton.text('Start');
 
 
-$interactButton.on('click', function() {
-    if ($('.start').css('display') == 'block') {
-        startTimer();
-        $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut();
-        $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
-        $('.koromon').css('opacity', 1)//.css('transition', 'opacity 1s linear');
-        if(room === 1) $interactButton.text('Play');
-        console.log(($('.start').css('display')));
-    }
-})
-
-
-
-$leftButton.on('click', function() {
-    if ($('.start').css('display', 'none')) {
-        room = 0;
-        $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
-        $interactButton.text('Sleep');
-    }
-})
-
-$centerButton.on('click', function() {
-    if ($('.start').css('display', 'none')) {
-        room = 1;
-        $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
-        $interactButton.text('Play');
-    }
-})
-
-$rightButton.on('click', function() {
-    if ($('.start').css('display', 'none')) {
-        room = 2;
-        $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
-        $interactButton.text('Eat');
-    }
-});
 
 function findRandomIntFromInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -60,7 +24,7 @@ class Tamagotchi{
         this.hunger = 0;
         this.age = 0;
     };
-
+    
     evolve() {
         this.maxHunger += findRandomIntFromInt(0, 3);
         this.maxSleep += findRandomIntFromInt(0, 3);
@@ -81,7 +45,7 @@ function startTimer() {
         console.log(time);
         if (time % 5 === 0) {
             let chance = findRandomIntFromInt(1, 7)
-            console.log(chance);
+            // console.log(chance);
             if (chance === 1 || chance === 5 || chance === 6 || chance === 7) digimon.boredom++;
             if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
             if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
@@ -89,8 +53,51 @@ function startTimer() {
         $('.hunger').val(digimon.hunger)
         $('.boredom').val(digimon.boredom)
         $('.sleep').val(digimon.sleep)
-        if (time % 20 === 0) digimon.age++;
-        // console.log(digimon.age);
+        if (time % 20 === 0) {
+            digimon.age = time / 20;
+            console.log(digimon.age);
+        }
     }, 1000);
 };
 
+
+$interactButton.on('click', function() {
+    if ($('.start').css('display') == 'block') {
+        startTimer();
+        $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut();
+        $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
+        $('.training').css('opacity', 1)//.css('transition', 'opacity 1s linear');
+        if(room === 1) $interactButton.text('Play');
+        console.log(($('.start').css('display')));
+    } else if ($('.start').css('display') == 'none') {
+        if (room === 0) digimon.sleep--;
+        if (room === 1) digimon.boredom--;
+        if (room === 2) digimon.hunger--;
+    }
+})
+
+
+
+$leftButton.on('click', function() {
+    if ($('.start').css('display') == 'none') {
+        room = 0;
+        $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
+        $interactButton.text('Sleep');
+    }
+})
+
+$centerButton.on('click', function() {
+    if ($('.start').css('display') == 'none') {
+        room = 1;
+        $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
+        $interactButton.text('Play');
+    }
+})
+
+$rightButton.on('click', function() {
+    if ($('.start').css('display') == 'none') {
+        room = 2;
+        $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
+        $interactButton.text('Eat');
+    }
+});

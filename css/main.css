@@ -127,7 +127,7 @@ body {
     z-index: 10;
 }
 
-.agumon {
+.rookie {
     position: absolute;
     align-self: flex-end;
     height: 25%;
@@ -135,7 +135,7 @@ body {
     opacity: 0;
 }
 
-.koromon {
+.training {
     position: absolute;
     align-self: flex-end;
     height: 20%;
@@ -143,7 +143,7 @@ body {
     opacity: 0;
 }
 
-.greymon {
+.champion {
     position: absolute;
     align-self: flex-end;
     height: 50%;
