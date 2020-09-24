@@ -70,6 +70,11 @@ function startTimer() {
             $('.rookie').css('opacity', 1);
             $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut()
         }
+        if (time / 20 === championAge) {
+            $('.rookie').css('opacity', 0).css('transition', 'opacity 1s linear')
+            $('.champion').css('opacity', 1);
+            $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut()
+        }
     }, 1000);
 };
 
