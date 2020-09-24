@@ -47,7 +47,7 @@ function startTimer() {
         $('.hunger').attr('max', digimon.maxHunger)
         $('.boredom').attr('max', digimon.maxBoredom)
         $('.sleep').attr('max', digimon.maxSleep)
-        // console.log(time);
+        console.log(time);
         if (time % 5 === 0) {
             let chance = findRandomIntFromInt(1, 7)
             // console.log(chance);
@@ -55,25 +55,21 @@ function startTimer() {
             if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
             if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
         }
-        console.log(digimon.hunger)
-        console.log(digimon.boredom)
-        console.log(digimon.sleep)
         $('.hunger').val(digimon.hunger)
         $('.boredom').val(digimon.boredom)
         $('.sleep').val(digimon.sleep)
-        if (time % 20 === 0) {
-            digimon.age = time / 20;
-            console.log(digimon.age);
-        }
+        digimon.age = time / 20;
         if (time / 20 === rookieAge) {
             $('.training').css('opacity', 0).css('transition', 'opacity 1s linear')
             $('.rookie').css('opacity', 1);
             $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut()
+            digimon.evolve()
         }
         if (time / 20 === championAge) {
             $('.rookie').css('opacity', 0).css('transition', 'opacity 1s linear')
             $('.champion').css('opacity', 1);
             $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut()
+            digimon.evolve()
         }
     }, 1000);
 };
