@@ -131,7 +131,7 @@ body {
     position: absolute;
     align-self: flex-end;
     height: 25%;
-    z-index: 10;
+    z-index:8;
     opacity: 0;
 }
 
@@ -139,7 +139,7 @@ body {
     position: absolute;
     align-self: flex-end;
     height: 20%;
-    z-index: 9;
+    z-index:8;
     opacity: 0;
 }
 
@@ -147,7 +147,7 @@ body {
     position: absolute;
     align-self: flex-end;
     height: 50%;
-    z-index: 10;
+    z-index: 8;
     opacity: 0;
 }
 
@@ -157,8 +157,7 @@ body {
 
 .start {
     position: absolute;
-    z-index: 5;
-    display: none;
+    z-index: 9;
 }
 
 .bedroom {

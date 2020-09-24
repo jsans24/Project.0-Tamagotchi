@@ -7,20 +7,24 @@ let time = 0;
 let room = 1
 
 $('.start').css('width', `${$('.window').css('width')}`).css('height', `${$('.window').css('height')}`)
+$interactButton.text('Start');
 
-if ($('.start').css('display', 'initial')) {
-    $interactButton.text('Start');
-    $interactButton.on('click', function() {
+
+$interactButton.on('click', function() {
+    if ($('.start').css('display') == 'block') {
         startTimer();
-        $('.start').css('display', 'none');
+        $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut();
         $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
         $('.koromon').css('opacity', 1)//.css('transition', 'opacity 1s linear');
         if(room === 1) $interactButton.text('Play');
-    })
-}
+        console.log(($('.start').css('display')));
+    }
+})
+
+
 
 $leftButton.on('click', function() {
-    if ($('.start').css('display') === 'none') {
+    if ($('.start').css('display', 'none')) {
         room = 0;
         $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
         $interactButton.text('Sleep');
@@ -28,7 +32,7 @@ $leftButton.on('click', function() {
 })
 
 $centerButton.on('click', function() {
-    if ($('.start').css('display') === 'none') {
+    if ($('.start').css('display', 'none')) {
         room = 1;
         $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
         $interactButton.text('Play');
@@ -36,7 +40,7 @@ $centerButton.on('click', function() {
 })
 
 $rightButton.on('click', function() {
-    if ($('.start').css('display') === 'none') {
+    if ($('.start').css('display', 'none')) {
         room = 2;
         $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
         $interactButton.text('Eat');
@@ -74,7 +78,7 @@ function startTimer() {
         $('.hunger').attr('max', digimon.maxHunger)
         $('.boredom').attr('max', digimon.maxBoredom)
         $('.sleep').attr('max', digimon.maxSleep)
-        // console.log(time);
+        console.log(time);
         if (time % 5 === 0) {
             let chance = findRandomIntFromInt(1, 7)
             console.log(chance);
