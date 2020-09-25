@@ -2,7 +2,7 @@ const $leftButton = $('.left');
 const $rightButton = $('.right');
 const $interactButton = $('.interact');
 const $centerButton = $('.center');
-const evolution = [{0: $(".training"), 1: $('.rookie'), 2: $('.champion')}];
+const evolution = [$(".training"), $('.rookie'), $('.champion')];
 const rookieAge = findRandomIntFromInt(5, 10)
 const championAge = findRandomIntFromInt(17, 25)
 const letter = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -53,7 +53,7 @@ const digimon = new Tamagotchi();
 
 function startTimer() {
     const timer = setInterval(function() {
-        time+=5;
+        time += 5;
         if ($('.bedroom').css('opacity') == .5) $('.bedroom').css('opacity', 1).css('transition', 'opacity 1s linear');
         $('.hunger').attr('max', digimon.maxHunger)
         $('.boredom').attr('max', digimon.maxBoredom)
@@ -61,9 +61,9 @@ function startTimer() {
         console.log(time);
         if (time % 5 === 0) {
             let chance = findRandomIntFromInt(1, 7)
-            if (digimon.boredom < digimon.maxBoredom) if (chance === 1 || chance === 5 || chance === 6 || chance === 7) digimon.boredom++;
-            if (digimon.hunger < digimon.maxHunger) if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
-            if (digimon.sleep < digimon.maxSleep) if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
+            // if (digimon.boredom < digimon.maxBoredom) if (chance === 1 || chance === 5 || chance === 6 || chance === 7) digimon.boredom++;
+            // if (digimon.hunger < digimon.maxHunger) if (chance === 2 || chance === 4 || chance === 5 || chance === 7) digimon.hunger++;
+            // if (digimon.sleep < digimon.maxSleep) if (chance === 3 || chance === 4 || chance === 6 || chance === 7) digimon.sleep++;
             console.log(digimon.hunger)
             console.log(digimon.boredom)
             console.log(digimon.sleep)

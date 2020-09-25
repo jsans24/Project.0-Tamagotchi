@@ -191,6 +191,13 @@ body {
     opacity: 0;
 }
 
+@keyframes mymove {
+    0%   {translate: 0px;}
+    25%  {translate: -30vw;}
+    50%  {transform: scaleX(-1);}
+    75%  {translate: 30vw;}
+    100% {translate: 0px;}
+}
 .rooms {
     position: relative;
     display: none;
