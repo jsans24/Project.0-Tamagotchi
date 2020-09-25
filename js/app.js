@@ -52,7 +52,7 @@ const digimon = new Tamagotchi();
 
 
 function startTimer() {
-    setInterval(function() {
+    const timer = setInterval(function() {
         time+=5;
         if ($('.bedroom').css('opacity') == .5) $('.bedroom').css('opacity', 1).css('transition', 'opacity 1s linear');
         $('.hunger').attr('max', digimon.maxHunger)
@@ -84,6 +84,11 @@ function startTimer() {
             $('.champion').css('opacity', 1);
             $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut()
             digimon.evolve()
+        }
+        if (digimon.hunger >= digimon.maxHunger || digimon.sleep >= digimon.maxSleep || digimon.boredom >= digimon.maxBoredom) {
+            clearInterval(timer)
+            $('.game-over').css('visibility', 'visible')
+            $('.rooms').fadeOut().fadeIn().fadeOut()
         }
     }, 1000);
 };
