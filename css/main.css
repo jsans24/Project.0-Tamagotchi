@@ -165,6 +165,23 @@ body {
     align-self: flex-end;
     height: 30%;
     z-index: 3;
+    animation: deadfloat 5s infinite;
+    
+}
+
+@keyframes mymove {
+    0%   {translate: 0px;}
+    25%  {translate: -30vw;}
+    50%  {transform: scaleX(-1);}
+    75%  {translate: 30vw;}
+    100% {translate: 0px;}
+}
+
+@keyframes deadfloat {
+    0%  {transform: translateX(0);}
+    25%  {transform: translateX(5vh);}
+    75%  {transform: translateX(-5vh);}
+    100%  {transform: translateX(0);}
 }
 
 .rookie {
@@ -173,6 +190,16 @@ body {
     height: 25%;
     z-index:2;
     opacity: 0;
+}
+
+.dead {
+    position: absolute;
+    align-self: flex-end;
+    height: 25%;
+    top: 50vh;
+    rotate: 90deg;
+    animation: deadfloat 5s infinite;
+    animation-timing-function: linear;
 }
 
 .training {
@@ -191,16 +218,8 @@ body {
     opacity: 0;
 }
 
-@keyframes mymove {
-    0%   {translate: 0px;}
-    25%  {translate: -30vw;}
-    50%  {transform: scaleX(-1);}
-    75%  {translate: 30vw;}
-    100% {translate: 0px;}
-}
 .rooms {
     position: relative;
-    display: none;
 }
 
 .start {

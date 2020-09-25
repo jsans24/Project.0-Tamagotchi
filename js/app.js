@@ -87,6 +87,7 @@ function startTimer() {
         }
         if (digimon.hunger >= digimon.maxHunger || digimon.sleep >= digimon.maxSleep || digimon.boredom >= digimon.maxBoredom) {
             clearInterval(timer)
+            $interactButton.text('Retry');
             $('.game-over').css('visibility', 'visible')
             $('.rooms').fadeOut().fadeIn().fadeOut()
         }
@@ -111,7 +112,7 @@ $interactButton.on('click', function() {
         $('.select').css('visibility', 'hidden');
     } 
 
-    if ($('.start').css('display') == 'none') {
+    if ($('.start').css('display') == 'none' && $('.rooms').css('display') != 'none') {
         if (room === 0 && digimon.sleep > 0) {
             digimon.sleep--;
             $('.bedroom').css('opacity', '50%').css('transition', 'opacity 1s linear')
@@ -119,6 +120,8 @@ $interactButton.on('click', function() {
         if (room === 1 && digimon.boredom > 0) digimon.boredom--;
         if (room === 2 && digimon.hunger > 0) digimon.hunger--;
     }
+
+    if ($('.rooms').css('display') == 'none') location.reload();
 })
 
 
@@ -129,7 +132,7 @@ $leftButton.on('click', function() {
         q--;
         $('.alphabet').text(`${letter[q]}`)
     }
-    if ($('.start').css('display') == 'none') {
+    if ($('.start').css('display') == 'none' && $('.rooms').css('display') != 'none') {
         room = 0;
         $('.rooms').css('transform', `translate(100%, 0)`).css('transition', 'transform 3s linear')
         $interactButton.text('Sleep');
@@ -144,7 +147,7 @@ $centerButton.on('click', function() {
         console.log(name);
         $('#name').text(name)
     }
-    if ($('.start').css('display') == 'none') {
+    if ($('.start').css('display') == 'none' && $('.rooms').css('display') != 'none') {
         room = 1;
         $('.rooms').css('transform', `translate(0, 0)`).css('transition', 'transform 3s linear')
         $interactButton.text('Play');
@@ -157,7 +160,7 @@ $rightButton.on('click', function() {
         q++;
         $('.alphabet').text(`${letter[q]}`)
     }
-    if ($('.start').css('display') == 'none') {
+    if ($('.start').css('display') == 'none' && $('.rooms').css('display') != 'none') {
         room = 2;
         $('.rooms').css('transform', `translate(-100%, 0)`).css('transition', 'transform 3s linear')
         $interactButton.text('Eat');
