@@ -6,13 +6,15 @@ const evolution = [{0: $(".training"), 1: $('.rookie'), 2: $('.champion')}];
 const rookieAge = findRandomIntFromInt(5, 10)
 const championAge = findRandomIntFromInt(17, 25)
 const letter = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-let name = '';
+let name = 'DIGIMON';
 let shift = 0;
 let q = 0;
 let time = 0;
 let room = 1;
 
 function updateLetter() {$('.alphabet').text(`${letter[q]}`)};
+$('#name').text(name)
+console.log(name.length);
 
 updateLetter()
 
@@ -70,6 +72,7 @@ function startTimer() {
         $('.boredom').val(digimon.boredom)
         $('.sleep').val(digimon.sleep)
         digimon.age = Math.floor(time / 20);
+        $('#age').text(digimon.age)
         if (time / 20 === rookieAge) {
             $('.training').css('opacity', 0).css('transition', 'opacity 1s linear')
             $('.rookie').css('opacity', 1);
@@ -89,16 +92,20 @@ function startTimer() {
 $interactButton.on('click', function() {
     if ($('.egg').css('opacity') == 1) {
         $('.alphabet').css('visibility', 'visible')
+        $('.input').css('visibility', 'visible')
         $interactButton.text('Submit'),
         $('.egg').css('opacity', 0).css('transition', 'opacity 1s linear');
-    } else if ($('.start').css('display') == 'block' && $('.alphabet').css('display') == 'block') {
+        $('.select').css('visibility', 'visible');
+    } else if ($('.start').css('display') == 'block' && $('.alphabet').css('visibility') == 'visible') {
         startTimer();
         $('.start').fadeOut().fadeIn().fadeOut().fadeIn().fadeOut();
         $('.rooms').css('display', 'block')
-        $('.training').css('opacity', 1)//.css('transition', 'opacity 1s linear');
+        $('.training').css('opacity', 1)
         if(room === 1) $interactButton.text('Play');
-        $('.alphabet').fadeOut()
+        $('.alphabet').css('visibility', 'hidden')
+        $('.select').css('visibility', 'hidden');
     } 
+
     if ($('.start').css('display') == 'none') {
         if (room === 0 && digimon.sleep > 0) {
             digimon.sleep--;
@@ -126,6 +133,8 @@ $leftButton.on('click', function() {
 
 $centerButton.on('click', function() {
     if ($('.alphabet').css('visibility') == 'visible') {
+        if (name == 'DIGIMON') name ='';
+        if (name.length > 7) name ='';
         name += letter[q]
         console.log(name);
         $('#name').text(name)
