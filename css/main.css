@@ -165,15 +165,15 @@ body {
     align-self: flex-end;
     height: 30%;
     z-index: 3;
-    animation: deadfloat 5s infinite;
-    
 }
 
 @keyframes mymove {
     0%   {translate: 0px;}
-    25%  {translate: -30vw;}
-    50%  {transform: scaleX(-1);}
-    75%  {translate: 30vw;}
+    20%  {transform: scaleX(1);}
+    25%  {translate: -30vw; transform: scaleX(-1);}
+    50%  {translate: 0px;}
+    70%  {transform: scaleX(-1);}
+    75%  {translate: 30vw; transform: scaleX(1);}
     100% {translate: 0px;}
 }
 
@@ -200,6 +200,7 @@ body {
     rotate: 90deg;
     animation: deadfloat 5s infinite;
     animation-timing-function: linear;
+    opacity: 0;
 }
 
 .training {
@@ -250,6 +251,18 @@ body {
     position: absolute;
     left: 10vw;
     top: 15vh;
+}
+
+progress.hunger::-moz-progress-bar {
+    background-color: red;
+}
+
+progress.boredom::-moz-progress-bar {
+    background-color: blue;
+}
+
+progress.sleep::-moz-progress-bar {
+    background-color: green;
 }
 
 .sleep {
