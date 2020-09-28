@@ -117,7 +117,7 @@ function startTimer() {
             if($eggEl.attr('src') == './assets/egg1.png') {
                 if ($trainingEl.css('opacity') == 1) $('.dead').attr('src', './assets/dead_tokomon.png');
                 if ($rookieEl.css('opacity') == 1) $('.dead').attr('src', './assets/dead_patamon.png');
-                if ($championEl.css('opacity') == 1) $('.dead').attr('src', './assets/angemon.png');
+                if ($championEl.css('opacity') == 1) $('.dead').attr('src', './assets/Angemon.png');
             }
             else if($eggEl.attr('src') == './assets/egg.png') {
                 if ($trainingEl.css('opacity') == 1) $('.dead').attr('src', './assets/dead_koromon.png');
@@ -184,7 +184,7 @@ $leftButton.on('click', function() {
         $eggEl.attr('src', './assets/egg1.png')
         $trainingEl.attr('src', './assets/tokomon.png');
         $rookieEl.attr('src', './assets/patamon.png');
-        $championEl.attr('src', './assets/angemon.png');
+        $championEl.attr('src', './assets/Angemon.png');
     }
     if ($('.alphabet').css('visibility') == 'visible') {
         if (q === 0) q = letter.length
