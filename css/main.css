@@ -51,6 +51,7 @@ body {
     line-height: 3vh;
     z-index: 4;
     visibility: hidden;
+    text-align: right;
 }
 
 .middle {
